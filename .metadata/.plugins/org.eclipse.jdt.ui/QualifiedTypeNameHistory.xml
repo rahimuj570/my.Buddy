@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.apache.http.impl.client.CloseableHttpClient"/>
+    <fullyQualifiedTypeName name="org.apache.http.impl.client.HttpClients"/>
+    <fullyQualifiedTypeName name="org.apache.http.client.methods.RequestBuilder"/>
+    <fullyQualifiedTypeName name="org.apache.http.impl.client.BasicResponseHandler"/>
+    <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpUriRequest"/>
+    <fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpHeaders"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpRequest"/>
+    <fullyQualifiedTypeName name="java.net.URI"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpResponse"/>
+    <fullyQualifiedTypeName name="java.net.http.HttpClient"/>
+</qualifiedTypeNameHistroy>

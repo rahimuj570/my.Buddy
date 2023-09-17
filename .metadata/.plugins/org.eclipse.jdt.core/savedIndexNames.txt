@@ -1,0 +1,5 @@
+INDEX VERSION 1.132+E:\MY WORK\My Budy\.metadata\.plugins\org.eclipse.jdt.core
+839345610.index
+1347250409.index
+1570439530.index
+1865797976.index
