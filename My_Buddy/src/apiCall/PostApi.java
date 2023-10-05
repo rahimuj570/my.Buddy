@@ -13,7 +13,7 @@ public class PostApi {
 
 		HttpRequest request = HttpRequest.newBuilder()
 			.POST(HttpRequest.BodyPublishers.ofString(requestBody))
-			.uri(URI.create("https://api.restful-api.dev/objects"))
+			.uri(URI.create("http://localhost:8080"))
 			.header("Content-Type", "application/json")
 			// .setHeader("Authorization", "Bearer 123token")
 			.build();

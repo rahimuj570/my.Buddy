@@ -11,4 +11,12 @@
     <fullyQualifiedTypeName name="java.net.URI"/>
     <fullyQualifiedTypeName name="java.net.http.HttpResponse"/>
     <fullyQualifiedTypeName name="java.net.http.HttpClient"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="pojo.testPojo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="pojo.UserDetailsTemplate"/>
+    <fullyQualifiedTypeName name="apiCall.LocalDb"/>
+    <fullyQualifiedTypeName name="java.awt.Cursor"/>
+    <fullyQualifiedTypeName name="java.awt.Toolkit"/>
 </qualifiedTypeNameHistroy>

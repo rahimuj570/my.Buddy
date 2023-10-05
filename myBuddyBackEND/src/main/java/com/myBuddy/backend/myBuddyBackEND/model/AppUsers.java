@@ -17,6 +17,8 @@ public class AppUsers extends AbstractEntityId {
     private String bloodGroup;
     private int totalDonation;
     private String lastDonation;
+    private String gender;
+    private int canDonate;
     private String[] area;
 
     public AppUsers() {
@@ -26,3 +28,16 @@ public class AppUsers extends AbstractEntityId {
         super(id);
     }
 }
+
+
+/*
+    DELIMITER $$
+    CREATE EVENT update_last_donation
+        ON SCHEDULE EVERY 24 HOUR
+        STARTS CURRENT_TIMESTAMP
+        DO BEGIN
+        UPDATE app_users SET last_donation = last_donation - 1 WHERE last_donation > 0;
+        UPDATE app_users set able= false where last_donation>0;
+        UPDATE app_users set able= true where last_donation=0;
+        END
+*/
