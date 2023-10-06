@@ -3,6 +3,8 @@ package model;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
+import apiCall.LocalDb;
+import pojo.PostRequest;
 import pojo.UserDetailsTemplate;
 import pojo.testPojo;
 
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -27,6 +30,13 @@ import java.net.http.HttpResponse;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class Dashboard {
@@ -55,14 +65,14 @@ public class Dashboard {
 	/**
 	 * Launch the application.
 	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { Dashboard window = new Dashboard();
-	 * window.frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); }
-	 * } });
-	 * 
-	 * }
-	 */
+	
+	  public static void main(String[] args) { EventQueue.invokeLater(new
+	  Runnable() { public void run() { try { Dashboard window = new Dashboard();
+	  window.frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); }
+	  } });
+	  
+	  }
+	 
 
 	/**
 	 * Create the application.
@@ -91,6 +101,11 @@ public class Dashboard {
 		initialize();
 	}
 
+	public Dashboard() {
+		initialize();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -105,6 +120,14 @@ public class Dashboard {
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("POST REQUEST");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PostGui window;
+				window = new PostGui(me);
+				window.frame.setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("K2D ExtraBold", Font.PLAIN, 14));
 		btnNewButton.setBackground(new Color(72, 209, 204));
@@ -128,11 +151,20 @@ public class Dashboard {
 		panel.add(btnFindDonor);
 		
 		JLabel lblNewLabel_1 = new JLabel(greeting+" "+me.getName().toUpperCase()+"!");
+//		JLabel lblNewLabel_1 = new JLabel("!");
 		lblNewLabel_1.setFont(new Font("TimeBurner", Font.BOLD, 14));
 		lblNewLabel_1.setBounds(13, 11, 257, 27);
 		panel.add(lblNewLabel_1);
 		
 		JButton btnNewsFeed = new JButton("NEWS FEED");
+		btnNewsFeed.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewsFeed window;
+				window = new NewsFeed(me);
+				window.frame.setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnNewsFeed.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewsFeed.setForeground(Color.WHITE);
 		btnNewsFeed.setFont(new Font("K2D ExtraBold", Font.PLAIN, 14));
@@ -140,16 +172,55 @@ public class Dashboard {
 		btnNewsFeed.setBounds(154, 323, 116, 37);
 		panel.add(btnNewsFeed);
 		
-		JButton btnMyProfile = new JButton("MY PROFILE");
-		btnMyProfile.setForeground(Color.WHITE);
-		btnMyProfile.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnMyProfile.setBackground(new Color(72, 109, 204));
-		btnMyProfile.setBounds(75, 371, 147, 37);
-		panel.add(btnMyProfile);
-		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\USER\\Desktop\\Screenshot 2023-09-30 131211.png"));
 		lblNewLabel.setBounds(87, 88, 116, 139);
 		panel.add(lblNewLabel);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Ready to Donate Blood?");
+		if(me.getCanDonate()==1)chckbxNewCheckBox.setSelected(true);
+		else chckbxNewCheckBox.setSelected(false);
+		
+		chckbxNewCheckBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				LocalDb allUsers = new LocalDb();
+				ArrayList<UserDetailsTemplate> aftrUpdate = new ArrayList<UserDetailsTemplate>();
+				ArrayList<UserDetailsTemplate> befreUpdate = new ArrayList<UserDetailsTemplate>();
+				try {
+					befreUpdate.addAll(allUsers.getAllUser());
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				if(chckbxNewCheckBox.isSelected()) {
+					me.setCanDonate(1);
+					JOptionPane.showMessageDialog( frame, "Your Profile is listed in Donor List!","Donor Status Updated", JOptionPane.INFORMATION_MESSAGE, null);
+				}else {
+					me.setCanDonate(0);
+					JOptionPane.showMessageDialog( frame, "Your Profile isn't listed in Donor List!","Donor Status Updated", JOptionPane.INFORMATION_MESSAGE, null);
+				}
+				
+				for(var elm:befreUpdate) {
+					if(elm.getEmail().equals(me.getEmail())) {
+						aftrUpdate.add(me);
+					}else {
+						aftrUpdate.add(elm);
+					}
+				}
+				try {
+					LocalDb updateUserDb = new LocalDb(aftrUpdate);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+
+
+		chckbxNewCheckBox.setBackground(new Color(128, 255, 128));
+		chckbxNewCheckBox.setBounds(75, 380, 165, 23);
+		panel.add(chckbxNewCheckBox);
 	}
 }

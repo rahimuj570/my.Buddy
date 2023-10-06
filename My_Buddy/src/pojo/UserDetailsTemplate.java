@@ -3,8 +3,9 @@ package pojo;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-@SuppressWarnings("serial")
+
 public class UserDetailsTemplate implements Serializable{
+	private static final long serialVersionUID = -8802198141951416844L;
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

@@ -15,4 +15,5 @@ module My_Buddy {
 	requires gson;
 	requires json.path;
 	requires java.datatransfer;
+	requires jdatepicker;
 }

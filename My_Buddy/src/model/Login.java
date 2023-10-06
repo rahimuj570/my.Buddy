@@ -125,13 +125,15 @@ public class Login extends Thread{
 						e1.printStackTrace();
 					}
 					boolean foundME=false;
-					for(var u:allUser) {
-						if(u.getEmail().equals(ob1.email) && u.getPassword().equals(ob1.password)) {
-							foundME=true;
-							me=u;
-							break;
-						}else {
-							
+					if(allUser!=null) {
+						for(var u:allUser) {
+							if(u.getEmail().equals(ob1.email) && u.getPassword().equals(ob1.password)) {
+								foundME=true;
+								me=u;
+								break;
+							}else {
+								
+							}
 						}
 					}
 					

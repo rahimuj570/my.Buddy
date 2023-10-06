@@ -14,9 +14,11 @@
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
     <fullyQualifiedTypeName name="pojo.testPojo"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="pojo.UserDetailsTemplate"/>
-    <fullyQualifiedTypeName name="apiCall.LocalDb"/>
     <fullyQualifiedTypeName name="java.awt.Cursor"/>
     <fullyQualifiedTypeName name="java.awt.Toolkit"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="javax.swing.JDialog"/>
+    <fullyQualifiedTypeName name="pojo.PostRequest"/>
+    <fullyQualifiedTypeName name="apiCall.LocalDb"/>
 </qualifiedTypeNameHistroy>

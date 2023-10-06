@@ -205,10 +205,12 @@ public class Signup {
 					e1.printStackTrace();
 				}
 				boolean availEmail = true;
-				for (var u : allUser) {
-					if (u.getEmail().equals(mailF.getText())) {
-						availEmail = false;
-						break;
+				if(allUser!=null) {					
+					for (var u : allUser) {
+						if (u.getEmail().equals(mailF.getText())) {
+							availEmail = false;
+							break;
+						}
 					}
 				}
 

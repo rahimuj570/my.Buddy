@@ -106,8 +106,8 @@ public class FindBlood {
 		btnNewButton.setBounds(18, 18, 149, 32);
 		frame.getContentPane().add(btnNewButton);
 
-		JLabel greeting = new JLabel("! Good morning");
-//		JLabel greeting = new JLabel("Hi "+me.getName()+"! Good morning");
+//		JLabel greeting = new JLabel("! Good morning");
+		JLabel greeting = new JLabel("Hi "+me.getName()+"! Good morning");
 		greeting.setHorizontalAlignment(SwingConstants.CENTER);
 		greeting.setFont(new Font("Sylfaen", Font.BOLD, 16));
 		greeting.setBounds(393, 16, 226, 43);
@@ -268,11 +268,13 @@ public class FindBlood {
 		panel.add(btnNewButton_2_1_1);
 
 		for (var tod : allUser) {
-			row[0] = tod.getName();
-			row[1] = tod.getBloodGroup();
-			row[2] = tod.getEmail();
-			row[3] = tod.getMobile();
-			modelT.addRow(row);
+			if(tod.getCanDonate()==1) {	
+				row[0] = tod.getName();
+				row[1] = tod.getBloodGroup();
+				row[2] = tod.getEmail();
+				row[3] = tod.getMobile();
+				modelT.addRow(row);
+			}
 		}
 	}
 
