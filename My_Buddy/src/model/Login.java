@@ -34,7 +34,7 @@ import pojo.UserDetailsTemplate;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Login extends Thread{
+public class Login extends Logo{
 
 	JFrame frame;
 	private JTextField txtEmail;
@@ -52,6 +52,7 @@ public class Login extends Thread{
 			public void run() {
 				try {
 					Login window = new Login();
+					window.frame.setIconImage(new Logo().fav.getImage());
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -90,7 +91,6 @@ public class Login extends Thread{
 		txtPassword.setBounds(45, 271, 186, 20);
 		txtPassword.setColumns(10);
 		panel.add(txtPassword);
-		
 		btnNewButton_1 = new JButton("LOGIN");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -137,7 +137,7 @@ public class Login extends Thread{
 						}
 					}
 					
-				
+
 				
 					
 					if(ob1.email.length()==0 || ob1.password.length()==0) {
@@ -153,18 +153,21 @@ public class Login extends Thread{
 						String greeting;
 					     Calendar c = Calendar.getInstance();
 					        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
-					        if(timeOfDay < 12){
-					        	greeting= "Good morning";
+					        if(timeOfDay < 5){
+					        	greeting= "Good night";
+					        }else if(timeOfDay < 12){
+					        greeting= "Good moring";
 					        }else if(timeOfDay < 16){
 					        greeting= "Good afternoon";
-					        }else if(timeOfDay < 21){
+					        }else if(timeOfDay < 19){
 					        greeting= "Good evening";
 					        }else {
-					        greeting= "Good night";
+					        	greeting= "Good night";
 					        }
 					        Dashboard window;
 							try {
 								window = new Dashboard(me,greeting);
+								window.frame.setIconImage(new Logo().fav.getImage());
 								window.frame.setVisible(true);
 								frame.dispose();
 							} catch (IOException e1) {
@@ -196,6 +199,7 @@ public class Login extends Thread{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Signup window = new Signup();
+				window.frame.setIconImage(new Logo().fav.getImage());
 				window.frame.setVisible(true);
 				frame.dispose();
 			}
@@ -214,7 +218,7 @@ public class Login extends Thread{
 		panel.add(lblPassword);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\USER\\Desktop\\Screenshot 2023-09-30 131211.png"));
+		lblNewLabel_1.setIcon(new Logo().logo);
 		lblNewLabel_1.setBounds(91, 45, 152, 155);
 		panel.add(lblNewLabel_1);
 	}

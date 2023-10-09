@@ -68,6 +68,7 @@ public class Dashboard {
 	
 	  public static void main(String[] args) { EventQueue.invokeLater(new
 	  Runnable() { public void run() { try { Dashboard window = new Dashboard();
+	  window.frame.setIconImage(new Logo().fav.getImage());
 	  window.frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); }
 	  } });
 	  
@@ -124,6 +125,7 @@ public class Dashboard {
 			public void actionPerformed(ActionEvent e) {
 				PostGui window;
 				window = new PostGui(me);
+				window.frame.setIconImage(new Logo().fav.getImage());
 				window.frame.setVisible(true);
 				frame.dispose();
 			}
@@ -139,6 +141,7 @@ public class Dashboard {
 			public void actionPerformed(ActionEvent e) {
 				FindBlood window;
 				window = new FindBlood(me);
+				window.frame.setIconImage(new Logo().fav.getImage());
 				window.frame.setVisible(true);
 				frame.dispose();
 			}
@@ -161,6 +164,7 @@ public class Dashboard {
 			public void actionPerformed(ActionEvent e) {
 				NewsFeed window;
 				window = new NewsFeed(me);
+				window.frame.setIconImage(new Logo().fav.getImage());
 				window.frame.setVisible(true);
 				frame.dispose();
 			}
@@ -173,7 +177,7 @@ public class Dashboard {
 		panel.add(btnNewsFeed);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\USER\\Desktop\\Screenshot 2023-09-30 131211.png"));
+		lblNewLabel.setIcon(new Logo().logo);
 		lblNewLabel.setBounds(87, 88, 116, 139);
 		panel.add(lblNewLabel);
 		

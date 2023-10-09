@@ -48,6 +48,7 @@ public class Signup {
 			public void run() {
 				try {
 					Signup window = new Signup();
+					window.frame.setIconImage(new Logo().fav.getImage());
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -77,7 +78,7 @@ public class Signup {
 		panel.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\USER\\Desktop\\Screenshot 2023-09-30 131211.png"));
+		lblNewLabel.setIcon(new Logo().logo);
 		lblNewLabel.setBounds(90, 35, 152, 155);
 		panel.add(lblNewLabel);
 
@@ -255,6 +256,7 @@ public class Signup {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Login window = new Login();
+				window.frame.setIconImage(new Logo().fav.getImage());
 				window.frame.setVisible(true);
 				frame.dispose();
 			}

@@ -84,7 +84,7 @@ public class FindBlood {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setAutoRequestFocus(false);
-		frame.setBounds(100, 100, 656, 661);
+		frame.setBounds(100, 0, 656, 661);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -219,7 +219,7 @@ public class FindBlood {
 		});
 		btnNewButton_1.setToolTipText("Search");
 		btnNewButton_1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\USER\\Downloads\\icons8-search-blood-53.png"));
+		btnNewButton_1.setIcon(new Logo().logo);
 		btnNewButton_1.setBounds(313, 124, 89, 69);
 		frame.getContentPane().add(btnNewButton_1);
 
